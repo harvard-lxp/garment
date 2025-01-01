@@ -1,7 +1,7 @@
 {
   "name": "@harvard-lxp/garment",
   "type": "module",
-"version": "0.19.0-rc.1",
+"version": "0.19.0-rc.2",
   "packageManager": "pnpm@9.12.2",
   "author": "Damir P. <underscope@gmail.com>",
   "license": "MIT",
