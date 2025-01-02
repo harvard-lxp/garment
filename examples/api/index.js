@@ -19,7 +19,9 @@ app.get('/repository/:id', async ({ params, query }, res) => {
   const opts = { eager: !!query.eager }
   const repository = query.snapshot
     ? await garment.snapshot().get(params.id, query.snapshot, opts)
-    : await garment.source().get(params.id, opts)
+    : query.preview
+      ? await garment.preview().get(params.id, opts)
+      : await garment.source().get(params.id, opts)
   if (signAssets)
     await repository.makePublic()
   res.json({

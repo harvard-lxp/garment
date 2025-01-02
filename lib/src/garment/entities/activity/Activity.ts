@@ -66,9 +66,12 @@ export class Activity {
     const containerManifest = this.contentContainers.find(it => it.sourceKey === id)
     if (!containerManifest)
       throw new Error (`The container '${id}' does not exist!`)
-    const repositoryKey = this.repository.env === GarmentEnv.Source
-      ? this.repository.sourceKey
-      : this.repository.snapshotKey
+    const repositoryKey
+      = this.repository.env === GarmentEnv.Source
+        ? this.repository.sourceKey
+        : this.repository.env === GarmentEnv.Preview
+          ? this.repository.previewKey
+          : this.repository.snapshotKey
     const containerData = await Activity.api.getContainer(
       id,
       repositoryKey,

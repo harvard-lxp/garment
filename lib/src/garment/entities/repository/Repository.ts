@@ -41,6 +41,11 @@ export class Repository {
     return Repository.getSnapshotKey(this.sourceKey, this.version)
   }
 
+  get previewKey(): string {
+    const key = this[Repository.fileKeyProp]
+    return isString(key) ? key : String(key)
+  }
+
   get path(): string {
     return Repository.api.getRepositoryPath(this.sourceKey, this.envPath)
   }
