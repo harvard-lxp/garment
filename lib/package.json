@@ -1,15 +1,10 @@
 {
-  "name": "@tailor-cms/garment",
+  "name": "@harvard-lxp/garment",
   "type": "module",
-  "version": "0.18.0",
+"version": "0.19.0-rc.2",
   "packageManager": "pnpm@9.12.2",
   "author": "Damir P. <underscope@gmail.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/underscope/garment.git"
-  },
-  "bugs": "https://github.com/underscope/garment/issues",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -36,7 +31,7 @@
     "build": "tsup",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
-    "release": "bumpp && npm publish",
+    "release": "bumpp && pnpm publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
@@ -79,5 +74,9 @@
     "minify": false,
     "clean": false,
     "dts": true
+  },
+  "repository": "github:harvard-lxp/garment",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
